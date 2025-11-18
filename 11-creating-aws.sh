@@ -3,7 +3,7 @@ ami_id="ami-09c813fb71547fc4f"
 security_group="sg-061a70ce669d05c8c"
 instance_name=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 
-for instances in ${instance_name[@]}
+for instances in "${instance_name[@]}"
 do 
     INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t3.micro --security-group-ids sg-061a70ce669d05c8c --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instances}]" --query "Instances[0].InstanceId" --output text)
     if [ $instances != "frontend" ]
