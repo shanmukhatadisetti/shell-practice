@@ -40,11 +40,11 @@ do
     if [ $? -ne 0 ]
     then 
         echo "The package is installing" &>>$LOG_FILE
-         install $package -y &>>$LOG_FILE
-        VALIDATION $? "$package"
+         install $packages -y &>>$LOG_FILE
+        VALIDATION $? "$packages"
 
     else
-    echo -e "$Y $package package is already installed $W" | tee -a $LOG_FILE
+    echo -e "$Y $packages package is already installed $W" | tee -a $LOG_FILE
 fi
 done
 
