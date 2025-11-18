@@ -18,9 +18,9 @@ fi
 VALIDATION(){
         if [ $1 -eq 0 ]
     then
-        echo "$2 installation succesful"
+        echo -e "$G $2 installation succesful $W"
     else
-        echo "ERROR:: $2 installation has been failed"
+        echo -e "$R ERROR:: $2 installation has been failed $W"
         exit 1
     fi
 }
@@ -33,7 +33,7 @@ then
     VALIDATION $? "nginx"
 
 else
-    echo "nginx package is already installed"
+    echo -e "$Y nginx package is already installed $W"
 fi
 
 dnf list installed python3
@@ -44,7 +44,7 @@ then
     VALIDATION $? "python3"
 
 else
-    echo "python3 package is already installed"
+    echo -e "$Y python3 package is already installed $W"
 fi
 
 dnf list installed mysql
@@ -55,5 +55,5 @@ then
     VALIDATION $? "mysql"
 
 else
-    echo " mysql package is already installed"
+    echo -e "$Y mysql package is already installed $W"
 fi
