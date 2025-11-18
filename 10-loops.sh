@@ -45,7 +45,7 @@ do
 
     else
     echo -e "$Y $packages package is already installed $W" | tee -a $LOG_FILE
-fi
+    fi
 done
 
 
