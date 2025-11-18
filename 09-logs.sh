@@ -31,7 +31,7 @@ VALIDATION(){
     fi
 }
 
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
     echo "The package is installing" &>>$LOG_FILE
