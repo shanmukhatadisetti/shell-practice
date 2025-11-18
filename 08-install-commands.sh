@@ -9,12 +9,18 @@ else
     echo "ERROR:: your not running with root user"
     exit 1
 fi
-
-dnf install nginx -y
+dnf list installed nginx
 if [ $? -eq 0 ]
-then
-    echo "installation succesful"
+then 
+    echo "The package is installing"
+    dnf install nginx -y
+    if [ $? -eq 0 ]
+    then
+        echo "installation succesful"
+    else
+        echo "ERROR:: installation has been failed"
+        exit 1
+    fi
 else
-    echo "ERROR:: installation has been failed"
-    exit 1
+    echo "The package is already installed"
 fi
