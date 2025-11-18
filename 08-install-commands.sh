@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-dnf install nnginxertyui -y
+dnf install nginx -y
 if [ $? -eg 0 ]
 then
     echo "installation succesful"
