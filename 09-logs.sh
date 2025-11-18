@@ -8,7 +8,7 @@ Y="\e[33m"
 W="\e[0m"
 
 SCRIPT_PATH=/var/log/scripting_logs
-SCRIPT_NAME=$(echo $0 | cut -d ":" -f1)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$SCRIPT_PATH/$SCRIPT_NAME.log"
 
 mkdir -p $SCRIPT_PATH
@@ -34,7 +34,7 @@ VALIDATION(){
 dnf list installed nginx
 if [ $? -ne 0 ]
 then 
-    echo "The package is installing"
+    echo "The package is installing" &>>$LOG_FILE
     dnf install nginx -y &>>$LOG_FILE
     VALIDATION $? "nginx"
 
@@ -42,7 +42,7 @@ else
     echo -e "$Y nginx package is already installed $W" &>>$LOG_FILE
 fi
 
-dnf list installed python3
+dnf list installed python3 &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
     echo "The package is installing"
@@ -53,7 +53,7 @@ else
     echo -e "$Y python3 package is already installed $W" &>>$LOG_FILE
 fi
 
-dnf list installed mysql
+dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
     echo "The package is installing"
