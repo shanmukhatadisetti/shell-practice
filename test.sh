@@ -17,7 +17,7 @@
 # done
 
 ami_id="ami-09c813fb71547fc4f"
-security_group="sg-061a70ce669d05c8c"
+security_group="sg-04dfa7701a1b29c64"
 instance_name=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 
 for instances in ${instance_name[@]}
