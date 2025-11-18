@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-if [ $userid -eg 0 ]
+if [ $userid -eq 0 ]
 then
     echo "your running with root user"
 else
