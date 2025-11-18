@@ -10,7 +10,7 @@ else
     exit 1
 fi
 dnf list installed nginx
-if [ $? -eq 0 ]
+if [ $? -ne 0 ]
 then 
     echo "The package is installing"
     dnf install nginx -y
