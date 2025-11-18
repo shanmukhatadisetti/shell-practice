@@ -8,7 +8,7 @@ Y="\e[33m"
 W="\e[0m"
 
 SCRIPT_PATH=/var/log/scripting_logs
-SCRIPT_NAME=$(echo $0 | cut -d ":" f1)
+SCRIPT_NAME=$(echo $0 | cut -d ":" -f1)
 LOG_FILE="$SCRIPT_PATH/$SCRIPT_NAME.log"
 
 mkdir -p $SCRIPT_PATH
