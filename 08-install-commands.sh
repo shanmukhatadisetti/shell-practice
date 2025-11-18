@@ -2,11 +2,16 @@
 
 userid=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+W="\e[0m"
+
 if [ $userid -eq 0 ]
 then
-    echo "your running with root user"
+    echo -e "$G your running with root user $W"
 else
-    echo "ERROR:: your not running with root user"
+    echo -e "$R ERROR:: your not running with root user $W"
     exit 1
 fi
 
