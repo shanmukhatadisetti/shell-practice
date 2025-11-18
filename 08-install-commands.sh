@@ -28,7 +28,7 @@ then
     VALIDATION $? "nginx"
 
 else
-    echo "$2 The package is already installed"
+    echo "nginx package is already installed"
 fi
 
 dnf list installed python3
@@ -39,7 +39,7 @@ then
     VALIDATION $? "python3"
 
 else
-    echo "$2 The package is already installed"
+    echo "python3 package is already installed"
 fi
 
 dnf list installed mysql
@@ -50,5 +50,5 @@ then
     VALIDATION $? "mysql"
 
 else
-    echo "$2 The package is already installed"
+    echo " mysql package is already installed"
 fi
