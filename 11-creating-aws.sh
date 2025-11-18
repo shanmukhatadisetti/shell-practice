@@ -4,7 +4,7 @@ instance_name=("mongodb" "catalogue" "frontend")
 
 for instances in ${instance_name[@]}
 do 
-    INSTANCE_ID=$(aws ec2 run-instances --image-id $ami_id --instance-type t3.micro --security-group-ids $security_group --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance_name}]" --query 'Instances[0].InstanceId' --output text)
+    INSTANCE_ID=$(aws ec2 run-instances --image-id $ami_id --instance-type t3.micro --security-group-ids $security_group --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance_name}]" --query "Instances[0].InstanceId" --output text)
     if [ $instance_name != "frontend" ]
     then
         ip=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress" --output text)
