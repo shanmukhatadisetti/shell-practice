@@ -12,21 +12,22 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$SCRIPT_PATH/$SCRIPT_NAME.log"
 
 mkdir -p $SCRIPT_PATH
+echo "script started excuting at:: $(date)"
 
 if [ $userid -eq 0 ]
 then
-    echo -e "$G your running with root user $W" &>>$LOG_FILE
+    echo -e "$G your running with root user $W" | tee -a $LOG_FILE
 else
-    echo -e "$R ERROR:: your not running with root user $W" &>>$LOG_FILE
+    echo -e "$R ERROR:: your not running with root user $W" | tee -a $LOG_FILE
     exit 1
 fi
 
 VALIDATION(){
         if [ $1 -eq 0 ]
     then
-        echo -e "$G $2 installation succesful $W" &>>$LOG_FILE
+        echo -e "$G $2 installation succesful $W" | tee -a $LOG_FILE
     else
-        echo -e "$R ERROR:: $2 installation has been failed $W" &>>$LOG_FILE
+        echo -e "$R ERROR:: $2 installation has been failed $W" | tee -a $LOG_FILE
         exit 1
     fi
 }
@@ -39,7 +40,7 @@ then
     VALIDATION $? "nginx"
 
 else
-    echo -e "$Y nginx package is already installed $W" &>>$LOG_FILE
+    echo -e "$Y nginx package is already installed $W" | tee -a $LOG_FILE
 fi
 
 dnf list installed python3 &>>$LOG_FILE
@@ -50,7 +51,7 @@ then
     VALIDATION $? "python3"
 
 else
-    echo -e "$Y python3 package is already installed $W" &>>$LOG_FILE
+    echo -e "$Y python3 package is already installed $W" | tee -a $LOG_FILE
 fi
 
 dnf list installed mysql &>>$LOG_FILE
@@ -61,5 +62,5 @@ then
     VALIDATION $? "mysql"
 
 else
-    echo -e "$Y mysql package is already installed $W" &>>$LOG_FILE
+    echo -e "$Y mysql package is already installed $W" | tee -a $LOG_FILE
 fi
