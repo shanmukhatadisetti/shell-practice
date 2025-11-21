@@ -4,7 +4,7 @@ ami_id="ami-09c813fb71547fc4f"
 security_group="sg-0b47b2f1a2cd6c326"
 # instance_name=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 # instace_name=$@
-zone_id="Z04587632P94S10NUVKK9"
+zone_id="sg-0409d92355539b721"
 domain_name="autonagar.in"
 
 # for instances in "${instance_name[@]}"
@@ -14,7 +14,7 @@ do
     if [ $instances != "frontend" ]
     then
         IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress" --output text)
-        RECORD_NAME="$instances.$domain_name"
+        RECORD_NAME="$domain_name"
     else
         IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicIpAddress" --output text)
         RECORD_NAME="$instances.$domain_name"
