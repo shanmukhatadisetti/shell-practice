@@ -6,4 +6,4 @@ while IFS= read -r files
 do
     echo $files
     rm -rf $files
-done >>>$delete_file
+done <<<$delete_file
