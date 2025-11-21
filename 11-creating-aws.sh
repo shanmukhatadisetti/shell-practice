@@ -22,21 +22,20 @@ do
     echo "$instances ip-address is:: $IP"
 
     aws route53 change-resource-record-sets \
-  --hosted-zone-id $zone_id \
-  --change-batch '
-  {
-    "Comment": "creating or updating a record set"
-    ,"Changes": [{
-      "Action"              : "UPSERT" 
-      ,"ResourceRecordSet"  : {
-        "Name"              : "'$RECORD_NAME'"
-        ,"Type"             : "A"
-        ,"TTL"              : 1
-        ,"ResourceRecords"  : [{
-            "Value"         : "' $IP '"
+    --hosted-zone-id $zone_id \
+    --change-batch '
+    {
+        "Comment": "creating or updating a record set"
+        ,"Changes": [{
+        "Action"              : "UPSERT" 
+        ,"ResourceRecordSet"  : {
+            "Name"              : "'$RECORD_NAME'"
+            ,"Type"             : "A"
+            ,"TTL"              : 1
+            ,"ResourceRecords"  : [{
+                "Value"         : "' $IP '"
+            }]
+        }
         }]
-      }
-    }]
-  }
-  '
+    }'
 done
