@@ -6,4 +6,4 @@ while IFS= read -r filepath
 do
     echo $filepath
     rm -rf $filepath
-done
+done <<<$Delete_files
