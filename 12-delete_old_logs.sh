@@ -1,9 +1,9 @@
-source_dir=/home/ec2-user
+source_path=/home/ec2-user
 
-Delete_files=$(find $source_dir -name "*log" -mtime +14)
+delete_file=$(find $source_path -name "*.log" -mtime +14)
 
-while IFS= read -r filepath
+while IFS= read -r files
 do
-    echo $filepath
-    rm -rf $filepath
-done <<<$Delete_files
+    echo $files
+    rm -rf $files
+done >>>$delete_file
