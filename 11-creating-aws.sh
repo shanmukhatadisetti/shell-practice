@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ami_id="ami-09c813fb71547fc4f"
-security_group="sg-0a6eaf05fceb855f1"
+security_group="sg-0393f5040180a10cf"
 # instance_name=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 # instace_name=$@
 zone_id="Z04587632P94S10NUVKK9"
